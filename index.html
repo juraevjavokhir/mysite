@@ -5,6 +5,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Javohir Juraev — Yuk avtomobili ehtiyot qismlari</title>
 <meta name="description" content="Javohir Juraev — Xitoy yuk avtomobillari uchun ehtiyot qismlar yetkazib berish va ta'minot.">
+
+<!-- Favicon -->
+<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<meta name="theme-color" content="#c65a24">
+
+<!-- Havola kartasi (Telegram, Facebook, WhatsApp va boshqalar) -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="uz_UZ">
+<meta property="og:site_name" content="Javohir Juraev">
+<meta property="og:url" content="https://juraevjavokhir.github.io/mysite/">
+<meta property="og:title" content="Javohir Juraev — FAW yuk mashinalari uchun ehtiyot qismlar">
+<meta property="og:description" content="Butun O'zbekiston bo'ylab 3–4 kunda yetkazib berish. Kafolatli ehtiyot qismlar. Do'kon va avtoservislar bilan shartnoma asosida ishlayman.">
+<meta property="og:image" content="https://juraevjavokhir.github.io/mysite/images/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Javohir Juraev — FAW yuk mashinalari uchun ehtiyot qismlar">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
@@ -12,6 +30,33 @@
 <script src="script.js"></script>
 </head>
 <body>
+  <!-- Yopishqoq menyu: hero'dan pastga tushganda paydo bo'ladi -->
+  <header class="stickybar" aria-label="Asosiy menyu">
+    <div class="container stickybar-inner">
+      <a class="sticky-logo" href="#">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 1h2v8.3l5.9-5.9 1.4 1.4-5.9 5.9L23 11v2h-8.6l5.9 5.9-1.4 1.4-5.9-5.9V23h-2v-8.6l-5.9 5.9-1.4-1.4 5.9-5.9H1v-2h8.6L3.7 5.1l1.4-1.4L11 9.6z"/></svg>
+        <span>Javohir Juraev</span>
+      </a>
+      <nav class="sticky-nav">
+        <a href="#xizmatlar">Xizmatlar</a>
+        <a href="#ishlarim">Ishlarim</a>
+        <a href="#fikrlar" hidden>Mijozlar fikri</a>
+        <a href="#savol-javob">Savol-javob</a>
+        <a href="#aloqa">Aloqa</a>
+      </nav>
+      <div class="sticky-actions">
+        <button class="theme-toggle theme-toggle-plain" type="button" aria-label="Tungi rejimni yoqish">
+          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 14.5A9 9 0 0 1 9.5 3a9 9 0 1 0 11.5 11.5z"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M11 1h2v3h-2zM11 20h2v3h-2zM1 11h3v2H1zM20 11h3v2h-3zM4.2 5.6l1.4-1.4 2.1 2.1-1.4 1.4zM16.3 17.7l1.4-1.4 2.1 2.1-1.4 1.4zM4.2 18.4l2.1-2.1 1.4 1.4-2.1 2.1zM16.3 6.3l2.1-2.1 1.4 1.4-2.1 2.1z"/></svg>
+        </button>
+        <a class="pill sticky-call" href="tel:+998909569773">Qo'ng'iroq</a>
+        <a class="sticky-call-icon" href="tel:+998909569773" aria-label="Qo'ng'iroq qilish">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25c1.1.37 2.3.57 3.6.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
   <!-- Hero -->
   <section class="hero">
     <div class="hero-frame">
@@ -28,7 +73,8 @@
           </a>
           <nav class="nav">
             <a href="#xizmatlar">Xizmatlar <sup>(3)</sup></a>
-            <a href="#loyihalar">Loyihalar <sup>(3)</sup></a>
+            <a href="#ishlarim">Ishlarim <sup>(3)</sup></a>
+            <a href="#savol-javob">Savol-javob</a>
             <a href="#aloqa">Aloqa</a>
           </nav>
         </div>
@@ -54,7 +100,7 @@
         <div class="hero-card-menu">
           <span class="burger" aria-hidden="true"></span>
           <a href="#xizmatlar">Xizmatlar</a>
-          <a href="#loyihalar">Loyihalar</a>
+          <a href="#ishlarim">Ishlarim</a>
           <a href="https://t.me/juraevjavokhir97" target="_blank" rel="noopener">Telegram</a>
         </div>
         <div class="hero-card-step"><span>01</span>Xitoy yuk avtomobillari</div>
@@ -130,33 +176,98 @@
       </div>
     </section>
 
-    <!-- Loyihalar (matnlarni o'z loyihalaringizga moslab o'zgartiring) -->
-    <section class="section section-alt" id="loyihalar">
+    <!-- Ishlarim
+         DIQQAT: nom va izohlar taxminiy — haqiqiy ishlaringiz bilan almashtiring.
+         Rasm qo'shish: .work-img ichidagi <svg> o'rniga <img src="images/ish-1.jpg" alt="..."> yozing. -->
+    <section class="section section-alt" id="ishlarim">
       <div class="container">
         <p class="tag">Tajriba</p>
-        <h2>Loyihalarim</h2>
+        <h2>Ishlarim</h2>
         <div class="grid">
-          <article class="card">
-            <span class="badge">Avtomatlashtirish</span>
-            <h3>Servis ishlarini avtomatlashtirish</h3>
-            <p>Yuk mashinalari servisida buyurtma va hisobot jarayonlarini avtomatlashtirib, ish tezligini oshirish.</p>
+          <article class="card work-card">
+            <div class="work-img">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 5h12v9h1V8h4l3 4v5h-2a2.5 2.5 0 0 1-5 0H9a2.5 2.5 0 0 1-5 0H2zm14 5v2h4.2l-1.5-2zM6.5 16a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm11 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/></svg>
+            </div>
+            <div class="work-body">
+              <h3>Servis ishlarini avtomatlashtirish</h3>
+              <p>Yuk mashinalari servisida buyurtma va hisobot jarayonlarini avtomatlashtirish.</p>
+            </div>
           </article>
-          <article class="card">
-            <span class="badge">Kafolat</span>
-            <h3>Kafolat jarayonlarini yo'lga qo'yish</h3>
-            <p>Kafolat bo'yicha murojaatlarni ko'rib chiqish va ehtiyot qismlarni almashtirish tartibini tizimlashtirish.</p>
+          <article class="card work-card">
+            <div class="work-img">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 5h12v9h1V8h4l3 4v5h-2a2.5 2.5 0 0 1-5 0H9a2.5 2.5 0 0 1-5 0H2zm14 5v2h4.2l-1.5-2zM6.5 16a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm11 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/></svg>
+            </div>
+            <div class="work-body">
+              <h3>Kafolat jarayonlarini yo'lga qo'yish</h3>
+              <p>Kafolat bo'yicha murojaatlarni ko'rib chiqish va qismlarni almashtirish tartibini tizimlashtirish.</p>
+            </div>
           </article>
-          <article class="card">
-            <span class="badge">Sotuv</span>
-            <h3>Ta'minot tarmog'i</h3>
-            <p>Do'konlar va avtoservislar bilan doimiy hamkorlik asosida ehtiyot qismlar yetkazib berish tizimini qurish.</p>
+          <article class="card work-card">
+            <div class="work-img">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 5h12v9h1V8h4l3 4v5h-2a2.5 2.5 0 0 1-5 0H9a2.5 2.5 0 0 1-5 0H2zm14 5v2h4.2l-1.5-2zM6.5 16a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm11 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/></svg>
+            </div>
+            <div class="work-body">
+              <h3>Ta'minot tarmog'i</h3>
+              <p>Do'konlar va avtoservislar bilan doimiy hamkorlikda ehtiyot qismlar yetkazib berish.</p>
+            </div>
           </article>
         </div>
       </div>
     </section>
 
+    <!-- Mijozlar fikri
+         Hozircha YASHIRIN (hidden). Haqiqiy sharhlar kelganda:
+         1) namunaviy matnlarni mijoz ruxsati bilan haqiqiy sharhlarga almashtiring;
+         2) shu <section> dagi va menyudagi "Mijozlar fikri" havolasidagi "hidden" so'zini o'chiring. -->
+    <section class="section" id="fikrlar" hidden>
+      <div class="container">
+        <p class="tag">Sharhlar</p>
+        <h2>Mijozlar fikri</h2>
+        <div class="grid">
+          <figure class="card review">
+            <blockquote>"Sharh matni shu yerga yoziladi."</blockquote>
+            <figcaption><b>Mijoz ismi</b><span>Kim ekani (masalan, avtoservis egasi)</span></figcaption>
+          </figure>
+          <figure class="card review">
+            <blockquote>"Sharh matni shu yerga yoziladi."</blockquote>
+            <figcaption><b>Mijoz ismi</b><span>Kim ekani</span></figcaption>
+          </figure>
+          <figure class="card review">
+            <blockquote>"Sharh matni shu yerga yoziladi."</blockquote>
+            <figcaption><b>Mijoz ismi</b><span>Kim ekani</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Savol-javob -->
+    <section class="section" id="savol-javob">
+      <div class="container container-narrow">
+        <p class="tag">Ko'p so'raladi</p>
+        <h2>Savol-javob</h2>
+        <div class="faq">
+          <details class="faq-item">
+            <summary>Qaysi yuk mashinalari uchun ehtiyot qismlar topasiz?</summary>
+            <p>FAW yuk mashinalari uchun ehtiyot qismlar bilan ishlayman.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Yetkazib berish qancha vaqt oladi?</summary>
+            <p>Butun O'zbekiston bo'ylab 3–4 kun ichida yetkazib beraman.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Ehtiyot qismlarga kafolat bormi?</summary>
+            <p>Ha, albatta. Barcha ehtiyot qismlar kafolat bilan beriladi.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Do'kon yoki avtoservis bilan shartnoma qanday tuziladi?</summary>
+            <p>Shartnoma har bir hamkor bilan kelishilgan shaklda tuziladi.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
     <!-- Aloqa -->
-    <section class="section contact" id="aloqa">
+    <section class="section section-alt contact" id="aloqa">
       <div class="container">
         <h2>Aloqa</h2>
         <p class="note">Savolingiz bormi — yozing, javob beraman.</p>

@@ -18,27 +18,109 @@ function applyTheme(theme) {
 
 applyTheme(savedTheme());
 
+// JavaScript ishlayotganini CSS'ga bildiradi (jonlanishlar faqat shunda yoqiladi)
+root.classList.add('js');
+
 document.addEventListener('DOMContentLoaded', () => {
-  const toggle = document.querySelector('.theme-toggle');
+  // Rejim tugmasi ikki joyda bor: hero menyusida va yopishqoq menyuda
+  const toggles = document.querySelectorAll('.theme-toggle');
 
   function updateLabel() {
     const isDark = root.classList.contains('dark');
-    toggle.setAttribute('aria-label', isDark ? 'Kunduzgi rejimni yoqish' : 'Tungi rejimni yoqish');
-    toggle.title = isDark ? 'Kunduzgi rejim' : 'Tungi rejim';
+    toggles.forEach((toggle) => {
+      toggle.setAttribute('aria-label', isDark ? 'Kunduzgi rejimni yoqish' : 'Tungi rejimni yoqish');
+      toggle.title = isDark ? 'Kunduzgi rejim' : 'Tungi rejim';
+    });
   }
 
-  if (toggle) {
-    updateLabel();
+  updateLabel();
+  toggles.forEach((toggle) => {
     toggle.addEventListener('click', () => {
       const next = root.classList.contains('dark') ? 'light' : 'dark';
       applyTheme(next);
       try { localStorage.setItem('theme', next); } catch (e) {}
       updateLabel();
     });
-    // Foydalanuvchi o'zi tanlamagan bo'lsa, tizim rejimi o'zgarganda sahifa ham o'zgaradi
-    systemDark.addEventListener('change', () => {
-      if (!savedTheme()) { applyTheme(null); updateLabel(); }
-    });
+  });
+  // Foydalanuvchi o'zi tanlamagan bo'lsa, tizim rejimi o'zgarganda sahifa ham o'zgaradi
+  systemDark.addEventListener('change', () => {
+    if (!savedTheme()) { applyTheme(null); updateLabel(); }
+  });
+
+  // --- Yopishqoq menyu: hero ko'rinmay qolganda paydo bo'ladi ---
+  const stickybar = document.querySelector('.stickybar');
+  const hero = document.querySelector('.hero');
+  if (stickybar && hero && 'IntersectionObserver' in window) {
+    new IntersectionObserver(([entry]) => {
+      stickybar.classList.toggle('show', !entry.isIntersecting);
+    }, { rootMargin: '-80px 0px 0px 0px' }).observe(hero);
+  }
+
+  // --- Menyuda hozirgi bo'limni ajratib ko'rsatish ---
+  const links = document.querySelectorAll('.sticky-nav a');
+  const sections = [...links]
+    .map((link) => document.querySelector(link.getAttribute('href')))
+    .filter((section) => section && !section.hidden);
+  if (sections.length && 'IntersectionObserver' in window) {
+    // Ekran o'rtasidagi bo'lim "hozirgi" hisoblanadi
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        links.forEach((link) => {
+          link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
+        });
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    sections.forEach((section) => observer.observe(section));
+  }
+
+  // --- Scroll qilganda bo'limlar yumshoq paydo bo'ladi ---
+  const revealItems = document.querySelectorAll(
+    'main .tag, main h2, main .card, main .faq-item, .contact .note, .contact .buttons'
+  );
+  revealItems.forEach((el) => {
+    el.classList.add('reveal');
+    // Bir qatordagi kartalar va savollar ketma-ket chiqadi
+    const group = el.closest('.grid, .faq');
+    if (group) {
+      const index = [...group.children].indexOf(el);
+      el.style.setProperty('--delay', (index * 0.08) + 's');
+    }
+  });
+
+  function finishReveal(el) {
+    // Animatsiyadan keyin klasslar olib tashlanadi — karta hover effekti odatdagidek tez ishlaydi
+    el.addEventListener('transitionend', () => {
+      el.classList.remove('reveal', 'in');
+      el.style.removeProperty('--delay');
+    }, { once: true });
+    el.classList.add('in');
+  }
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if ('IntersectionObserver' in window && !reduceMotion) {
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        // Ekranda ko'rinsa yoki sakrab o'tib ketilgan bo'lsa (ekrandan yuqorida qolgan) — ko'rsatamiz
+        const passed = entry.boundingClientRect.bottom < 0;
+        if (!entry.isIntersecting && !passed) return;
+        finishReveal(entry.target);
+        revealObserver.unobserve(entry.target); // faqat bir marta
+      });
+    }, { rootMargin: '0px 0px -8% 0px' });
+    revealItems.forEach((el) => revealObserver.observe(el));
+
+    // Sakrab o'tilganda kuzatuvchi xabar bermaydi — shuning uchun scrolldan keyin tekshiramiz
+    window.addEventListener('scroll', () => {
+      document.querySelectorAll('.reveal:not(.in)').forEach((el) => {
+        if (el.getBoundingClientRect().top < window.innerHeight) {
+          finishReveal(el);
+          revealObserver.unobserve(el);
+        }
+      });
+    }, { passive: true });
+  } else {
+    revealItems.forEach((el) => el.classList.remove('reveal'));
   }
 
   // --- Rasm topilmasa, hero fonida gradient qoladi ---
