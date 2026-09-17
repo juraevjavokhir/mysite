@@ -1,0 +1,20 @@
+# Maxfiy sozlamalar (parol, kalit, token)
+.env
+.env.*
+*.pem
+*.key
+
+# Windows / macOS keraksiz fayllari
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Muharrir va vositalar sozlamalari
+.vscode/
+.idea/
+.claude/
+
+# Loglar va vaqtinchalik fayllar
+*.log
+*.tmp
+node_modules/
