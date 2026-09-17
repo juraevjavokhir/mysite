@@ -7,7 +7,8 @@
 
 ## Uslub
 - Professional, minimalistik va iliq dizayn.
-- Ranglar `style.css` dagi `:root` o'zgaruvchilaridan olinadi: qumrang fon, to'q jigarrang matn, to'q sariq (`--accent`) urg'u.
+- Ranglar `style.css` dagi `:root` o'zgaruvchilaridan olinadi: qumrang fon, to'q sariq (`--accent`) chiziq va belgilar.
+- Barcha matn sariq: kunduzgi rejimda to'q xantal (`#7a5a00`), tungi rejimda yorqin sariq (`#f5c518`). Matn va fon kontrasti kamida 4.5 bo'lsin.
 - Yangi rang qo'shsang, tungi rejim uchun ham moslab yoz.
 - Ohang: qisqa, aniq, samimiy. Bo'rttirma va reklama so'zlarini ishlatma.
 - Javohir aytmagan fakt, raqam yoki loyihani to'qima. Taxminiy matn yozsang, buni aniq ayt.
